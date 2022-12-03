@@ -1,0 +1,38 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <form id="decencform" method="post" asp-page-handler="Encode">
+        <div class="row form-group">
+            <div class="col-md-12">
+                <label asp-for="EncodeArea">
+                    <h5>Encode text to Base64:</h5>
+                </label>
+                <textarea class="form-control" rows="5" asp-for="EncodeArea"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-md-11 col-md-1">
+                <button class="btn btn-primary">Encode</button>
+            </div>
+        </div>
+    </form>
+    <form id="decencform" method="post" asp-page-handler="Decode">
+        <div class="row form-group">
+            <div class="col-md-12">
+                <label asp-for="DecodeArea">
+                    <h5>Decode Base64 to text:</h5>
+                </label>
+                <textarea class="form-control" rows="5" asp-for="DecodeArea"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-md-11 col-md-1">
+                <button class="btn btn-primary">Decode</button>
+            </div>
+        </div>
+    </form>
+</div>
