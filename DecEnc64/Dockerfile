@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
+#EXPOSE 443
 
 LABEL org.opencontainers.image.source=https://github.com/Gunnersoft-Solutions/Base64DecEnc
 LABEL org.opencontainers.image.description="Simple Base64 Encoder/Decoder website"
