@@ -5,6 +5,10 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+LABEL org.opencontainers.image.source=https://github.com/Gunnersoft-Solutions/Base64DecEnc
+LABEL org.opencontainers.image.description="Simple Base64 Encoder/Decoder website"
+LABEL org.opencontainers.image.licenses=Apache-2.0
+
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["DecEnc64/DecEnc64.csproj", "DecEnc64/"]
