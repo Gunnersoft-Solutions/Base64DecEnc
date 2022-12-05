@@ -27,4 +27,28 @@ jobs:
 
     - name: Push image to container registry
       run: docker push ghcr.io/gunnersoft-solutions/base64decenc:latest
-         
+
+  build-windows:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Switch to Windows containers
+      run: |
+           $path = ".\DecEnc64\Dockerfile"
+           (Get-Content -Path $path) -replace "<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>", "<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>" | Set-Content $path
+    
+    - name: Build the Docker image
+      run: docker build --file .\DecEnc64\Dockerfile --tag ghcr.io/gunnersoft-solutions/base64decenc:win-latest .
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push image to container registry
+      run: docker push ghcr.io/gunnersoft-solutions/base64decenc:win-latest
