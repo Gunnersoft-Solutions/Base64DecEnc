@@ -1,6 +1,6 @@
 # Base64DecEnc
 
-Download the images:
+Download the latest images:
 
-Linux   -  
-Windows - 
+Linux   - docker pull ghcr.io/gunnersoft-solutions/base64decenc:latest
+Windows - docker pull ghcr.io/gunnersoft-solutions/base64decenc:win-latest
